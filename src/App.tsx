@@ -1,7 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -14,7 +37,32 @@ function App() {
   return (
     <div className="min-h-screen bg-cream-100">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream-50/95 backdrop-blur-sm border-b border-cream-300">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream-50/95 backdrop-blur-sm border-b-2 border-accent/40 shadow-sm">
+        {/* Top Utility Bar */}
+        <div className="bg-accent text-cream-50/90 text-xs px-6 py-2 border-b border-accent-dark/30 hidden md:block">
+          <div className="max-w-7xl mx-auto flex justify-between items-center font-medium tracking-wide">
+            <span className="flex items-center">
+              <span className="w-1.5 h-1.5 bg-accent-light rounded-full mr-2 animate-pulse"></span>
+              Bespoke Kitchen, Bedroom & Bathroom Installation
+            </span>
+            <span className="flex items-center space-x-6">
+              <a href="tel:07980886335" className="hover:text-cream-200 transition-colors flex items-center">
+                <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                07980 886335
+              </a>
+              <span>•</span>
+              <a href="mailto:bosworthkbb@gmail.com" className="hover:text-cream-200 transition-colors flex items-center">
+                <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                bosworthkbb@gmail.com
+              </a>
+            </span>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <button onClick={() => scrollToSection('hero')} className="flex items-center">
@@ -84,28 +132,42 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center bg-cream-100 pt-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 md:py-32">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center bg-cream-100 pt-28 md:pt-36 overflow-hidden">
+        {/* Blueprint background grid */}
+        <div className="absolute inset-0 blueprint-dot pointer-events-none" />
+
+        {/* Decorative architectural layout marks */}
+        <div className="absolute top-36 left-8 text-[10px] font-mono text-accent/40 tracking-widest hidden md:block select-none">
+          COORD_52.6285_1.4026 // MARKET BOSWORTH
+        </div>
+        <div className="absolute bottom-12 right-8 text-[10px] font-mono text-accent/40 tracking-widest hidden md:block select-none">
+          SCALE: 1:25 // HAND-DRAWN SPEC
+        </div>
+        <div className="absolute left-12 bottom-1/4 w-px h-24 bg-gradient-to-b from-accent/20 to-transparent hidden lg:block" />
+        <div className="absolute bottom-12 left-12 w-24 h-px bg-gradient-to-r from-accent/20 to-transparent hidden lg:block" />
+        <div className="absolute right-12 top-1/3 w-px h-24 bg-gradient-to-t from-accent/20 to-transparent hidden lg:block" />
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 md:py-32 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-stone font-medium tracking-wider text-sm uppercase mb-6">
+            <p className="text-stone font-medium tracking-wider text-sm uppercase mb-6 scroll-animate delay-100">
               Independent Fitting Services
             </p>
 
-            <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal leading-tight mb-8">
+            <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal leading-tight mb-8 scroll-animate delay-200">
               Your Home,{' '}
               <span className="text-accent">My Craft</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-charcoal-light leading-relaxed mb-12 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-charcoal-light leading-relaxed mb-12 max-w-2xl mx-auto scroll-animate delay-300">
               Over <span className="text-charcoal font-medium">37 years</span> of expert kitchen, bedroom,
               and bathroom fitting across Warwickshire. Personal quotes, hand-drawn plans,
               and the attention your home deserves.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 scroll-animate delay-400">
               <a
                 href="tel:07980886335"
-                className="bg-accent hover:bg-accent-dark text-cream-50 px-10 py-4 text-base font-medium tracking-wide transition-all flex items-center"
+                className="bg-accent hover:bg-accent-dark text-cream-50 px-10 py-4 text-base font-medium tracking-wide transition-all flex items-center shadow-lg shadow-accent/15"
               >
                 <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -124,7 +186,7 @@ function App() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-12 md:gap-20 max-w-2xl mx-auto pt-12 border-t border-cream-300">
+            <div className="grid grid-cols-3 gap-12 md:gap-20 max-w-2xl mx-auto pt-12 border-t border-cream-300 scroll-animate delay-500">
               <div className="text-center">
                 <div className="font-serif font-bold text-3xl md:text-4xl text-charcoal mb-2">37+</div>
                 <div className="text-sm text-stone tracking-wide">Years Experience</div>
@@ -145,7 +207,7 @@ function App() {
       {/* Services Section */}
       <section id="services" className="py-24 md:py-32 bg-warmgray">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-20">
+          <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
             <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
               What I Offer
             </p>
@@ -218,7 +280,7 @@ function App() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-cream-100 p-10 border border-cream-200 hover:border-accent/30 transition-colors group"
+                className={`bg-cream-100 p-10 border border-cream-300/80 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 group scroll-animate delay-${((index % 3) + 1) * 100}`}
               >
                 <div className="text-accent mb-6">
                   {service.icon}
@@ -231,11 +293,68 @@ function App() {
         </div>
       </section>
 
+      {/* The Fitting Process Section */}
+      <section id="process" className="py-24 md:py-32 bg-cream-100 relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-dot pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
+            <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
+              Step-By-Step
+            </p>
+            <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
+              My Fitting Process
+            </h2>
+            <p className="text-lg text-charcoal-light leading-relaxed">
+              From the initial measurement to the final dust-down, here is how I bring your vision to life with precision and care.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
+            {/* Connecting line for desktop */}
+            <div className="hidden lg:block absolute top-[4.5rem] left-[10%] right-[10%] h-0.5 bg-accent/20 -z-10" />
+
+            {[
+              {
+                step: '01',
+                title: 'Home Consultation',
+                desc: 'I visit your home to take precise measurements and understand your vision, storage needs, and lifestyle requirements.',
+              },
+              {
+                step: '02',
+                title: 'Hand-Drawn Plans',
+                desc: 'Instead of sterile computer models, I create custom hand-drawn plans showing your layout from multiple angles, ensuring every detail is considered.',
+              },
+              {
+                step: '03',
+                title: 'Expert Installation',
+                desc: 'With over 37 years of experience, I handle all assembly, fitting, plumbing, and carpentry myself to guarantee zero compromise on quality.',
+              },
+              {
+                step: '04',
+                title: 'The Final Handover',
+                desc: 'A thorough walkthrough together. I make sure everything is completely immaculate, fully functional, and ready for you to enjoy.',
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`scroll-animate delay-${(index + 1) * 100} flex flex-col items-center text-center`}
+              >
+                <div className="w-20 h-20 rounded-full bg-accent text-cream-50 flex items-center justify-center font-serif font-bold text-2xl border-4 border-cream-200 shadow-md mb-6 hover:scale-105 transition-transform">
+                  {item.step}
+                </div>
+                <h3 className="font-serif font-semibold text-xl text-charcoal mb-3">{item.title}</h3>
+                <p className="text-charcoal-muted text-sm leading-relaxed max-w-xs">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-24 md:py-32 bg-cream-100">
+      <section id="about" className="py-24 md:py-32 bg-warmgray">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div>
+            <div className="scroll-animate delay-100">
               <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
                 About Bosworth KBB
               </p>
@@ -270,18 +389,20 @@ function App() {
               </div>
             </div>
 
-            <div className="bg-cream-50 border border-cream-300 p-12 lg:p-16">
-              <div className="text-center">
-                <div className="inline-block border-2 border-accent px-8 py-6 mb-8">
-                  <span className="font-serif font-bold text-4xl text-black">
-                    Bosworth <span className="text-accent">KBB</span>
+            <div className="bg-accent text-cream-50 p-12 lg:p-16 relative overflow-hidden shadow-2xl scroll-animate delay-300">
+              {/* Blueprint coordinate line */}
+              <div className="absolute top-0 right-0 w-24 h-24 border-r border-t border-cream-50/15" />
+              <div className="text-center relative z-10">
+                <div className="inline-block border-2 border-cream-50 px-8 py-6 mb-8">
+                  <span className="font-serif font-bold text-3xl text-cream-50">
+                    Bosworth <span className="text-cream-300">KBB</span>
                   </span>
                 </div>
-                <p className="text-charcoal-light leading-relaxed mb-8">
-                  Kitchen. Bedrooms. Bathrooms.
+                <p className="text-cream-100 leading-relaxed mb-8">
+                  Kitchens. Bedrooms. Bathrooms.
                 </p>
-                <div className="w-16 h-px bg-accent mx-auto mb-8" />
-                <p className="text-charcoal-muted italic leading-relaxed">
+                <div className="w-16 h-px bg-cream-300 mx-auto mb-8" />
+                <p className="text-cream-200 italic leading-relaxed">
                   "Every home deserves the personal touch of a dedicated craftsman—that's what I bring to every job."
                 </p>
               </div>
@@ -291,10 +412,12 @@ function App() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 md:py-32 bg-warmgray">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-20">
-            <p className="text-terracotta font-medium tracking-wider text-sm uppercase mb-4">
+      <section className="py-24 md:py-32 bg-cream-100 relative overflow-hidden">
+        {/* Blueprint background grid */}
+        <div className="absolute inset-0 blueprint-dot pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
+            <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
               Why Choose Bosworth KBB
             </p>
             <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight">
@@ -341,9 +464,11 @@ function App() {
                 ),
               },
             ].map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="text-terracotta mb-5">
-                  {feature.icon}
+              <div key={index} className={`text-center scroll-animate delay-${((index % 4) + 1) * 100}`}>
+                <div className="text-accent mb-5 flex justify-center">
+                  <div className="p-4 bg-accent/5 rounded-full border border-accent/15 hover:bg-accent/10 transition-colors">
+                    {feature.icon}
+                  </div>
                 </div>
                 <h3 className="font-serif font-semibold text-lg text-charcoal mb-3">{feature.title}</h3>
                 <p className="text-charcoal-muted text-sm leading-relaxed">{feature.description}</p>
@@ -351,9 +476,11 @@ function App() {
             ))}
           </div>
 
-          <div className="max-w-3xl mx-auto bg-cream-100 border border-cream-300 p-12 md:p-16">
-            <div className="text-center">
-              <svg className="w-10 h-10 text-accent mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
+          <div className="max-w-3xl mx-auto bg-cream-50 border-2 border-accent/20 shadow-xl p-12 md:p-16 scroll-animate delay-200 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-4 h-4 border-l border-t border-accent" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-r border-b border-accent" />
+            <div className="text-center relative z-10">
+              <svg className="w-10 h-10 text-accent mx-auto mb-8 opacity-75" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.339v3.986c-3.373.57-5.511 2.87-5.511 6.335v4.009h5.511v4.005h-8.52zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.339v3.986c-3.386.57-5.546 2.87-5.546 6.335v4.009h5.574v4.005h-9.028z" />
               </svg>
               <p className="font-serif font-semibold text-xl md:text-2xl text-charcoal leading-relaxed mb-8">
@@ -369,10 +496,10 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-32 bg-cream-100">
+      <section id="contact" className="py-24 md:py-32 bg-warmgray">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-20">
-            <p className="text-terracotta font-medium tracking-wider text-sm uppercase mb-4">
+          <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
+            <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
               Get In Touch
             </p>
             <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
@@ -384,28 +511,29 @@ function App() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-cream-50 border border-cream-300">
+          <div className="max-w-4xl mx-auto scroll-animate delay-100">
+            <div className="bg-cream-50 border border-cream-300 shadow-xl">
               <div className="grid md:grid-cols-2">
                 {/* Contact Info */}
-                <div className="bg-charcoal p-12 md:p-16">
-                  <h3 className="font-serif font-bold text-2xl text-cream-50 mb-10">
+                <div className="bg-accent p-12 md:p-16 relative overflow-hidden">
+                  <div className="absolute inset-0 blueprint-dot opacity-5 pointer-events-none" />
+                  <h3 className="font-serif font-bold text-2xl text-cream-50 mb-10 relative z-10">
                     Contact Information
                   </h3>
 
-                  <div className="space-y-8">
+                  <div className="space-y-8 relative z-10">
                     <a
                       href="tel:07980886335"
                       className="flex items-start group"
                     >
-                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-accent transition-colors">
+                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-cream-300 transition-colors">
                         <svg className="w-5 h-5 text-cream-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="text-stone-light text-sm mb-1">Phone</div>
-                        <div className="text-cream-50 text-lg font-medium group-hover:text-accent transition-colors">
+                        <div className="text-cream-200/70 text-sm mb-1">Phone</div>
+                        <div className="text-cream-50 text-lg font-medium group-hover:text-cream-300 transition-colors">
                           07980 886335
                         </div>
                       </div>
@@ -415,14 +543,14 @@ function App() {
                       href="mailto:bosworthkbb@gmail.com"
                       className="flex items-start group"
                     >
-                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-accent transition-colors">
+                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-cream-300 transition-colors">
                         <svg className="w-5 h-5 text-cream-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
                       <div>
-                        <div className="text-stone-light text-sm mb-1">Email</div>
-                        <div className="text-cream-50 text-lg font-medium group-hover:text-accent transition-colors">
+                        <div className="text-cream-200/70 text-sm mb-1">Email</div>
+                        <div className="text-cream-50 text-lg font-medium group-hover:text-cream-300 transition-colors">
                           bosworthkbb@gmail.com
                         </div>
                       </div>
@@ -436,19 +564,19 @@ function App() {
                         </svg>
                       </div>
                       <div>
-                        <div className="text-stone-light text-sm mb-1">Location</div>
+                        <div className="text-cream-200/70 text-sm mb-1">Location</div>
                         <div className="text-cream-50 text-lg font-medium">
                           Market Bosworth
                         </div>
-                        <div className="text-stone-light text-sm">
+                        <div className="text-cream-200/70 text-sm">
                           Warwickshire & surrounding areas
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-12 pt-10 border-t border-cream-50/10">
-                    <p className="text-stone-light text-sm leading-relaxed">
+                  <div className="mt-12 pt-10 border-t border-cream-50/10 relative z-10">
+                    <p className="text-cream-200/80 text-sm leading-relaxed">
                       Available for projects across Warwickshire and the surrounding region.
                       Call today for a free, no-obligation consultation.
                     </p>
@@ -533,26 +661,26 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-charcoal py-16">
+      <footer className="bg-accent-dark py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div className="mb-8 md:mb-0">
               <span className="font-serif font-bold text-3xl md:text-4xl text-cream-50">
-                Bosworth <span className="text-accent">KBB</span>
+                Bosworth <span className="text-cream-300">KBB</span>
               </span>
-              <p className="text-stone-light text-sm mt-2">
+              <p className="text-cream-200/70 text-sm mt-2">
                 Market Bosworth, Warwickshire
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-10">
-              <a href="tel:07980886335" className="text-cream-50 hover:text-accent transition-colors flex items-center text-sm">
+              <a href="tel:07980886335" className="text-cream-50 hover:text-cream-200 transition-colors flex items-center text-sm">
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 07980 886335
               </a>
-              <a href="mailto:bosworthkbb@gmail.com" className="text-cream-50 hover:text-accent transition-colors flex items-center text-sm">
+              <a href="mailto:bosworthkbb@gmail.com" className="text-cream-50 hover:text-cream-200 transition-colors flex items-center text-sm">
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -562,11 +690,11 @@ function App() {
           </div>
 
           <div className="pt-10 border-t border-cream-50/10 text-center">
-            <p className="text-stone text-sm mb-4">
+            <p className="text-cream-200/60 text-sm mb-4">
               Over 37 years of trusted craftsmanship across Warwickshire.{' '}
               <span className="text-cream-50">Independent. Personal. Professional.</span>
             </p>
-            <p className="text-stone-light text-xs">
+            <p className="text-cream-200/40 text-xs">
               &copy; {new Date().getFullYear()} Bosworth Kitchen Bedrooms and Bathrooms. All rights reserved.
             </p>
           </div>
