@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        warmgray: '#F0EFED',
         cream: {
           50: '#fdfcf9',
           100: '#FAF8F5',

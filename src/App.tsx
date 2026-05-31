@@ -18,7 +18,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <button onClick={() => scrollToSection('hero')} className="flex items-center">
-              <span className="font-serif font-bold text-2xl text-charcoal tracking-tight">
+              <span className="font-serif font-bold text-3xl md:text-4xl text-black tracking-tight">
                 Bosworth <span className="text-accent">KBB</span>
               </span>
             </button>
@@ -93,7 +93,7 @@ function App() {
 
             <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal leading-tight mb-8">
               Your Home,{' '}
-              <span className="text-accent">Our Craft</span>
+              <span className="text-accent">My Craft</span>
             </h1>
 
             <p className="text-lg md:text-xl text-charcoal-light leading-relaxed mb-12 max-w-2xl mx-auto">
@@ -143,11 +143,11 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 md:py-32 bg-cream-50">
+      <section id="services" className="py-24 md:py-32 bg-warmgray">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-20">
             <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
-              What We Offer
+              What I Offer
             </p>
             <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
               Quality Home Improvements
@@ -162,7 +162,7 @@ function App() {
             {[
               {
                 title: 'Kitchen Fitting',
-                description: 'Complete kitchen installations and renovations. From design consultation to final touches, we create spaces where memories are made.',
+                description: 'Complete kitchen installations and renovations. From design consultation to final touches, I create spaces where memories are made.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -208,7 +208,7 @@ function App() {
               },
               {
                 title: 'Free Consultations',
-                description: 'Every job starts with a personal visit. We discuss your vision, offer advice, and provide honest, transparent quotes.',
+                description: 'Every job starts with a personal visit. I discuss your vision, offer advice, and provide honest, transparent quotes.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.939-2.879C3.37 15.639 3 13.874 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -237,7 +237,7 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
               <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
-                About Us
+                About Bosworth KBB
               </p>
               <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-8">
                 Three Decades of Craftsmanship
@@ -273,7 +273,7 @@ function App() {
             <div className="bg-cream-50 border border-cream-300 p-12 lg:p-16">
               <div className="text-center">
                 <div className="inline-block border-2 border-accent px-8 py-6 mb-8">
-                  <span className="font-serif font-bold text-3xl text-charcoal">
+                  <span className="font-serif font-bold text-4xl text-black">
                     Bosworth <span className="text-accent">KBB</span>
                   </span>
                 </div>
@@ -291,11 +291,11 @@ function App() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 md:py-32 bg-cream-50">
+      <section className="py-24 md:py-32 bg-warmgray">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-20">
             <p className="text-terracotta font-medium tracking-wider text-sm uppercase mb-4">
-              Why Choose Us
+              Why Choose Bosworth KBB
             </p>
             <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight">
               The Big Chains Can't Match This
@@ -537,7 +537,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div className="mb-8 md:mb-0">
-              <span className="font-serif font-bold text-2xl text-cream-50">
+              <span className="font-serif font-bold text-3xl md:text-4xl text-cream-50">
                 Bosworth <span className="text-accent">KBB</span>
               </span>
               <p className="text-stone-light text-sm mt-2">
