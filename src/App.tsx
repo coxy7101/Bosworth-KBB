@@ -132,48 +132,39 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-28 md:pt-36 overflow-hidden">
-        {/* Background image */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/kitchen-marble-island.png"
-            alt="Luxury open-plan kitchen with marble waterfall island fitted by Bosworth KBB"
+            src="/images/leoneil-ai-generated-8626394_1920.jpg"
+            alt="Beautiful modern kitchen with marble island worktop"
             className="w-full h-full object-cover"
           />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-charcoal/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/40 to-charcoal/60" />
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         </div>
 
-        {/* Decorative architectural layout marks */}
-        <div className="absolute top-36 left-8 text-[10px] font-mono text-cream-50/40 tracking-widest hidden md:block select-none z-10">
-          COORD_52.6285_1.4026 // MARKET BOSWORTH
-        </div>
-        <div className="absolute bottom-12 right-8 text-[10px] font-mono text-cream-50/40 tracking-widest hidden md:block select-none z-10">
-          SCALE: 1:25 // HAND-DRAWN SPEC
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 md:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 md:py-32 relative z-10 mt-20 md:mt-24">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-cream-300 font-medium tracking-wider text-sm uppercase mb-6 scroll-animate delay-100">
-              Independent Fitting Services
+            <p className="text-cream-200/90 font-medium tracking-wider text-sm uppercase mb-6 scroll-animate delay-100">
+              Market Bosworth, Leicestershire
             </p>
 
-            <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream-50 leading-tight mb-8 scroll-animate delay-200 text-balance">
-              Your Home,{' '}
-              <span className="text-cream-300">My Craft</span>
+            <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-8 scroll-animate delay-200">
+              Craftsmanship{' '}
+              <span className="text-accent-light">That Lasts</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-cream-100/90 leading-relaxed mb-12 max-w-2xl mx-auto scroll-animate delay-300 text-pretty">
-              Over <span className="text-cream-50 font-semibold">37 years</span> of expert kitchen, bedroom,
-              and bathroom fitting across Warwickshire. Personal quotes, hand-drawn plans,
-              and the attention your home deserves.
+            <p className="text-lg md:text-xl text-cream-100/90 leading-relaxed mb-12 max-w-2xl mx-auto scroll-animate delay-300">
+              Over <span className="text-white font-semibold">37 years</span> of expert kitchen, bedroom,
+              and bathroom fitting across Leicestershire. Precision craftsmanship, honest quotes,
+              and results that speak for themselves.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 scroll-animate delay-400">
               <a
                 href="tel:07980886335"
-                className="bg-cream-50 hover:bg-cream-200 text-accent px-10 py-4 text-base font-semibold tracking-wide transition-all flex items-center shadow-xl"
+                className="bg-accent hover:bg-accent-dark text-cream-50 px-10 py-4 text-base font-medium tracking-wide transition-all flex items-center shadow-lg shadow-black/20"
               >
                 <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -182,7 +173,7 @@ function App() {
               </a>
               <button
                 onClick={() => scrollToSection('gallery')}
-                className="border border-cream-50/60 text-cream-50 hover:bg-cream-50 hover:text-accent px-10 py-4 text-base font-medium tracking-wide transition-all flex items-center backdrop-blur-sm"
+                className="border border-white/60 text-white hover:bg-white/10 px-10 py-4 text-base font-medium tracking-wide transition-all flex items-center backdrop-blur-sm"
               >
                 View Our Work
                 <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -192,20 +183,61 @@ function App() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-8 md:gap-20 max-w-2xl mx-auto pt-12 border-t border-cream-50/20 scroll-animate delay-500">
+            <div className="grid grid-cols-3 gap-8 md:gap-20 max-w-2xl mx-auto pt-10 border-t border-white/20 scroll-animate delay-500">
               <div className="text-center">
-                <div className="font-serif font-bold text-3xl md:text-5xl text-cream-50 mb-2">37+</div>
-                <div className="text-xs md:text-sm text-cream-200/80 tracking-wide">Years Experience</div>
+                <div className="font-serif font-bold text-3xl md:text-4xl text-white mb-2">37+</div>
+                <div className="text-sm text-cream-200/70 tracking-wide">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="font-serif font-bold text-3xl md:text-5xl text-cream-50 mb-2">100%</div>
-                <div className="text-xs md:text-sm text-cream-200/80 tracking-wide">Personal Service</div>
+                <div className="font-serif font-bold text-3xl md:text-4xl text-white mb-2">100%</div>
+                <div className="text-sm text-cream-200/70 tracking-wide">Hands-On Service</div>
               </div>
               <div className="text-center">
-                <div className="font-serif font-bold text-3xl md:text-5xl text-cream-50 mb-2">Local</div>
-                <div className="text-xs md:text-sm text-cream-200/80 tracking-wide">Warwickshire Based</div>
+                <div className="font-serif font-bold text-3xl md:text-4xl text-white mb-2">Local</div>
+                <div className="text-sm text-cream-200/70 tracking-wide">Leicestershire Based</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-24 md:py-32 bg-cream-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center mb-16 scroll-animate">
+            <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
+              Recent Projects
+            </p>
+            <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
+              Kitchens We've Fitted
+            </h2>
+            <p className="text-lg text-charcoal-light leading-relaxed">
+              Every kitchen is designed and installed with care. Here are some of our recent transformations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 scroll-animate delay-200">
+            {[
+              { src: '/images/leoneil-ai-generated-8626394_1920.jpg', alt: 'Modern kitchen with marble island and open plan living' },
+              { src: '/images/kam-idris-hYb7kbu4x7E-unsplash.jpg', alt: 'Luxury dark wood kitchen with glass display cabinet' },
+              { src: '/images/cat-han-VgyN_CWXQVM-unsplash.jpg', alt: 'Light minimal kitchen with garden view window' },
+              { src: '/images/collov-home-design--aDGbdTsBZg-unsplash.jpg', alt: 'Slate green shaker kitchen with marble worktops' },
+              { src: '/images/iris-lavoie-eTmXAuuCsL8-unsplash.jpg', alt: 'Sleek matte black kitchen with white quartz worktops' },
+              { src: '/images/lotus-design-n-print-I_QC1JICzA0-unsplash.jpg', alt: 'White and grey island kitchen with modern fixtures' },
+              { src: '/images/sosey-interiors-YABErdnJPGc-unsplash.jpg', alt: 'Rustic farmhouse kitchen with wooden island' },
+              { src: '/images/lanasmm-ai-generated-8534233_1920.png', alt: 'Bold blue gloss kitchen with wooden dining area' },
+            ].map((image, index) => (
+              <div
+                key={index}
+                className={`overflow-hidden group ${index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className={`w-full object-cover group-hover:scale-105 transition-transform duration-500 ${index === 0 ? 'h-full min-h-[300px] sm:min-h-[500px]' : 'h-64 sm:h-72'}`}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -230,7 +262,7 @@ function App() {
             {[
               {
                 title: 'Kitchen Fitting',
-                description: 'Complete kitchen installations and renovations. From design consultation to final touches, I create spaces where memories are made.',
+                description: 'Complete kitchen installations and renovations. From design consultation to final touches, creating spaces where memories are made.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -276,7 +308,7 @@ function App() {
               },
               {
                 title: 'Free Consultations',
-                description: 'Every job starts with a personal visit. I discuss your vision, offer advice, and provide honest, transparent quotes.',
+                description: 'Every job starts with a home visit. We discuss your vision, offer advice, and provide honest, transparent quotes with no obligation.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.939-2.879C3.37 15.639 3 13.874 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -308,10 +340,10 @@ function App() {
               Step-By-Step
             </p>
             <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
-              My Fitting Process
+              How We Work
             </h2>
             <p className="text-lg text-charcoal-light leading-relaxed">
-              From the initial measurement to the final dust-down, here is how I bring your vision to life with precision and care.
+              From the initial measurement to the final dust-down, here's how we bring your vision to life with precision and care.
             </p>
           </div>
 
@@ -323,22 +355,22 @@ function App() {
               {
                 step: '01',
                 title: 'Home Consultation',
-                desc: 'I visit your home to take precise measurements and understand your vision, storage needs, and lifestyle requirements.',
+                desc: 'We visit your home to take precise measurements and understand your vision, storage needs, and lifestyle requirements.',
               },
               {
                 step: '02',
                 title: 'Hand-Drawn Plans',
-                desc: 'Instead of sterile computer models, I create custom hand-drawn plans showing your layout from multiple angles, ensuring every detail is considered.',
+                desc: 'Instead of sterile computer models, we create custom hand-drawn plans showing your layout from multiple angles, ensuring every detail is considered.',
               },
               {
                 step: '03',
                 title: 'Expert Installation',
-                desc: 'With over 37 years of experience, I handle all assembly, fitting, plumbing, and carpentry myself to guarantee zero compromise on quality.',
+                desc: 'With over 37 years of experience, all assembly, fitting, plumbing, and carpentry is handled in-house to guarantee zero compromise on quality.',
               },
               {
                 step: '04',
                 title: 'The Final Handover',
-                desc: 'A thorough walkthrough together. I make sure everything is completely immaculate, fully functional, and ready for you to enjoy.',
+                desc: 'A thorough walkthrough together. We make sure everything is completely immaculate, fully functional, and ready for you to enjoy.',
               },
             ].map((item, index) => (
               <div
@@ -369,12 +401,12 @@ function App() {
               </h2>
               <div className="space-y-6 text-lg text-charcoal-light leading-relaxed">
                 <p>
-                  For over 37 years, I've been helping homeowners across Warwickshire transform their living spaces.
-                  What started as a young tradesman's passion has grown into a reputation built on trust, quality,
-                  and personal service.
+                  For over 37 years, Bosworth KBB has been helping homeowners across Leicestershire transform their living spaces.
+                  What started as a passion for precision fitting has grown into a reputation built on trust, quality,
+                  and hands-on service.
                 </p>
                 <p>
-                  Unlike large chains, when you work with Bosworth KBB, you're working directly with me—from the first
+                  Unlike large chains, when you work with Bosworth KBB, you deal directly with the people doing the work—from the first
                   home visit to the final quality check. Every quote includes hand-drawn plans showing exactly how your
                   space will look, not impersonal computer renderings.
                 </p>
@@ -383,9 +415,9 @@ function App() {
               <div className="grid grid-cols-2 gap-6 mt-12">
                 {[
                   { label: 'Years Experience', value: '37+' },
-                  { label: 'Independent', value: '100%' },
+                  { label: 'In-House Work', value: '100%' },
                   { label: 'Location', value: 'Market Bosworth' },
-                  { label: 'Service Area', value: 'Warwickshire' },
+                  { label: 'Service Area', value: 'Leicestershire' },
                 ].map((stat, index) => (
                   <div key={index} className="bg-cream-50 p-6 border border-cream-300">
                     <div className="font-serif font-bold text-2xl text-charcoal mb-1">{stat.value}</div>
@@ -409,7 +441,7 @@ function App() {
                 </p>
                 <div className="w-16 h-px bg-cream-300 mx-auto mb-8" />
                 <p className="text-cream-200 italic leading-relaxed">
-                  "Every home deserves the personal touch of a dedicated craftsman—that's what I bring to every job."
+                  "Every home deserves proper craftsmanship—that's what we bring to every job."
                 </p>
               </div>
             </div>
@@ -435,7 +467,7 @@ function App() {
             {[
               {
                 title: 'Direct Communication',
-                description: 'Speak directly to the person doing the work—no middlemen, no call centres, no confusion.',
+                description: 'Speak directly to the people doing the work—no middlemen, no call centres, no confusion.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.939-2.879C3.37 15.639 3 13.874 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -453,7 +485,7 @@ function App() {
               },
               {
                 title: 'No Subcontractors',
-                description: 'Every job, large or small, is handled personally—from start to finish.',
+                description: 'Every job, large or small, is handled by our own team—from start to finish.',
                 icon: (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.039 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -490,86 +522,19 @@ function App() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.339v3.986c-3.373.57-5.511 2.87-5.511 6.335v4.009h5.511v4.005h-8.52zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.339v3.986c-3.386.57-5.546 2.87-5.546 6.335v4.009h5.574v4.005h-9.028z" />
               </svg>
               <p className="font-serif font-semibold text-xl md:text-2xl text-charcoal leading-relaxed mb-8">
-                "When you hire a big chain, you're just another number. When you work with me,
-                you're getting 37 years of expertise, my personal commitment, and a home I'm proud to put my name on."
+                "Big chains treat you like a number. We treat every home like our reputation depends on it—because it does.
+                37 years of doing things the right way, and we're not about to stop now."
               </p>
               <div className="text-stone font-medium tracking-wide text-sm">
-                — Bosworth Kitchen Bedrooms and Bathrooms
+                — Bosworth KBB
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Portfolio / Gallery Section */}
-      <section id="gallery" className="py-24 md:py-32 bg-warmgray">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
-            <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
-              Recent Projects
-            </p>
-            <h2 className="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-charcoal leading-tight mb-6">
-              A Portfolio of Craftsmanship
-            </h2>
-            <p className="text-lg text-charcoal-light leading-relaxed">
-              From sleek modern designs to timeless country classics, here is a selection of kitchens
-              and spaces fitted with precision across Warwickshire.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { src: '/images/kitchen-marble-island.png', title: 'Marble Island Open Plan', category: 'Luxury Kitchen' },
-              { src: '/images/kitchen-dark-wood-teal.png', title: 'Dark Wood & Teal Kitchen', category: 'Contemporary' },
-              { src: '/images/kitchen-slate-green-shaker.png', title: 'Slate Green Shaker Kitchen', category: 'Classic' },
-              { src: '/images/kitchen-white-garden.png', title: 'White Minimal with Garden View', category: 'Modern Minimal' },
-              { src: '/images/kitchen-rustic-farmhouse.png', title: 'Rustic Farmhouse Kitchen', category: 'Country Style' },
-              { src: '/images/kitchen-white-grey-island.png', title: 'White & Grey Island Kitchen', category: 'Contemporary' },
-              { src: '/images/kitchen-matte-black.png', title: 'Matte Black Minimal Kitchen', category: 'Modern Minimal' },
-              { src: '/images/kitchen-blue-gloss.png', title: 'Navy Blue Gloss Kitchen', category: 'Modern' },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className={`group relative overflow-hidden aspect-[4/3] border border-cream-300 shadow-sm hover:shadow-2xl transition-all duration-500 scroll-animate delay-${((index % 3) + 1) * 100}`}
-              >
-                <img
-                  src={project.src || "/placeholder.svg"}
-                  alt={`${project.title} fitted by Bosworth KBB`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
-                {/* Caption */}
-                <div className="absolute inset-x-0 bottom-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="inline-block text-[10px] uppercase tracking-widest text-cream-300 font-medium mb-2 bg-accent/80 px-2 py-1">
-                    {project.category}
-                  </span>
-                  <h3 className="font-serif font-semibold text-xl text-cream-50">{project.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-16 scroll-animate">
-            <p className="text-charcoal-light mb-6">
-              Like what you see? Let&apos;s create something beautiful for your home.
-            </p>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="bg-accent hover:bg-accent-dark text-cream-50 px-10 py-4 text-base font-medium tracking-wide transition-all inline-flex items-center shadow-lg shadow-accent/15"
-            >
-              Start Your Project
-              <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-32 bg-cream-100">
+      <section id="contact" className="py-24 md:py-32 bg-warmgray">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
             <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
@@ -579,8 +544,8 @@ function App() {
               Let's Discuss Your Project
             </h2>
             <p className="text-lg text-charcoal-light leading-relaxed">
-              Ready to start your home transformation? Call for a free consultation or send an inquiry.
-              I personally respond to every message.
+              Ready to start your home transformation? Get in touch for a free consultation.
+              We respond to every enquiry promptly.
             </p>
           </div>
 
@@ -608,25 +573,6 @@ function App() {
                         <div className="text-cream-200/70 text-sm mb-1">Phone</div>
                         <div className="text-cream-50 text-lg font-medium group-hover:text-cream-300 transition-colors">
                           07980 886335
-                        </div>
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://wa.me/447980886335"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-start group"
-                    >
-                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-cream-300 transition-colors">
-                        <svg className="w-5 h-5 text-cream-50" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-cream-200/70 text-sm mb-1">WhatsApp</div>
-                        <div className="text-cream-50 text-lg font-medium group-hover:text-cream-300 transition-colors">
-                          Message me directly
                         </div>
                       </div>
                     </a>
@@ -661,32 +607,17 @@ function App() {
                           Market Bosworth
                         </div>
                         <div className="text-cream-200/70 text-sm">
-                          Warwickshire & surrounding areas
+                          Leicestershire & surrounding areas
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-12 pt-10 border-t border-cream-50/10 relative z-10 space-y-4">
-                    <div className="flex items-center text-cream-100">
-                      <svg className="w-5 h-5 mr-3 text-cream-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm">Free, no-obligation home consultations</span>
-                    </div>
-                    <div className="flex items-center text-cream-100">
-                      <svg className="w-5 h-5 mr-3 text-cream-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span className="text-sm">Same-day response, Mon&ndash;Fri</span>
-                    </div>
-                    <div className="flex items-center text-cream-100">
-                      <svg className="w-5 h-5 mr-3 text-cream-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span className="text-sm">Local &mdash; no travel charges in Warwickshire</span>
-                    </div>
+                  <div className="mt-12 pt-10 border-t border-cream-50/10 relative z-10">
+                    <p className="text-cream-200/80 text-sm leading-relaxed">
+                      Available for projects across Leicestershire and the surrounding region.
+                      Get in touch today for a free, no-obligation consultation.
+                    </p>
                   </div>
                 </div>
 
@@ -776,7 +707,7 @@ function App() {
                 Bosworth <span className="text-cream-300">KBB</span>
               </span>
               <p className="text-cream-200/70 text-sm mt-2">
-                Market Bosworth, Warwickshire
+                Market Bosworth, Leicestershire
               </p>
             </div>
 
@@ -798,8 +729,8 @@ function App() {
 
           <div className="pt-10 border-t border-cream-50/10 text-center">
             <p className="text-cream-200/60 text-sm mb-4">
-              Over 37 years of trusted craftsmanship across Warwickshire.{' '}
-              <span className="text-cream-50">Independent. Personal. Professional.</span>
+              Over 37 years of trusted craftsmanship across Leicestershire.{' '}
+              <span className="text-cream-50">Local. Trusted. Professional.</span>
             </p>
             <p className="text-cream-200/40 text-xs">
               &copy; {new Date().getFullYear()} Bosworth Kitchen Bedrooms and Bathrooms. All rights reserved.
@@ -807,18 +738,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      {/* Sticky Mobile Call Button */}
-      <a
-        href="tel:07980886335"
-        className="md:hidden fixed bottom-5 right-5 z-50 bg-accent hover:bg-accent-dark text-cream-50 rounded-full shadow-2xl shadow-accent/30 px-6 py-4 flex items-center font-medium tracking-wide transition-all"
-        aria-label="Call Bosworth KBB"
-      >
-        <svg className="w-5 h-5 mr-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-        Call Now
-      </a>
     </div>
   );
 }
