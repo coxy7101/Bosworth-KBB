@@ -152,7 +152,7 @@ function App() {
 
             <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-8 scroll-animate delay-200">
               Craftsmanship{' '}
-              <span className="text-accent-light">That Lasts</span>
+              <span className="border-b-4 border-accent-light pb-1">That Lasts</span>
             </h1>
 
             <p className="text-lg md:text-xl text-cream-100/90 leading-relaxed mb-12 max-w-2xl mx-auto scroll-animate delay-300">
@@ -223,7 +223,7 @@ function App() {
               { src: '/images/cat-han-VgyN_CWXQVM-unsplash.jpg', alt: 'Light minimal kitchen with garden view window' },
               { src: '/images/collov-home-design--aDGbdTsBZg-unsplash.jpg', alt: 'Slate green shaker kitchen with marble worktops' },
               { src: '/images/iris-lavoie-eTmXAuuCsL8-unsplash.jpg', alt: 'Sleek matte black kitchen with white quartz worktops' },
-              { src: '/images/lotus-design-n-print-I_QC1JICzA0-unsplash.jpg', alt: 'White and grey island kitchen with modern fixtures' },
+              { src: '/images/lotus-design-n-prlnt-I_QC1JICzA0-unsplash.jpg', alt: 'White and grey island kitchen with modern fixtures' },
               { src: '/images/sosey-interiors-YABErdnJPGc-unsplash.jpg', alt: 'Rustic farmhouse kitchen with wooden island' },
               { src: '/images/lanasmm-ai-generated-8534233_1920.png', alt: 'Bold blue gloss kitchen with wooden dining area' },
             ].map((image, index) => (
@@ -333,7 +333,7 @@ function App() {
 
       {/* The Fitting Process Section */}
       <section id="process" className="py-24 md:py-32 bg-cream-100 relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-dot pointer-events-none" />
+        <div className="absolute inset-0 blueprlnt-dot pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
             <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
@@ -428,7 +428,7 @@ function App() {
             </div>
 
             <div className="bg-accent text-cream-50 p-12 lg:p-16 relative overflow-hidden shadow-2xl scroll-animate delay-300">
-              {/* Blueprint coordinate line */}
+              {/* Blueprlnt coordinate line */}
               <div className="absolute top-0 right-0 w-24 h-24 border-r border-t border-cream-50/15" />
               <div className="text-center relative z-10">
                 <div className="inline-block border-2 border-cream-50 px-8 py-6 mb-8">
@@ -451,8 +451,8 @@ function App() {
 
       {/* Why Choose Us Section */}
       <section className="py-24 md:py-32 bg-cream-100 relative overflow-hidden">
-        {/* Blueprint background grid */}
-        <div className="absolute inset-0 blueprint-dot pointer-events-none" />
+        {/* Blueprlnt background grid */}
+        <div className="absolute inset-0 blueprlnt-dot pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="max-w-2xl mx-auto text-center mb-20 scroll-animate">
             <p className="text-accent font-medium tracking-wider text-sm uppercase mb-4">
@@ -554,7 +554,7 @@ function App() {
               <div className="grid md:grid-cols-2">
                 {/* Contact Info */}
                 <div className="bg-accent p-12 md:p-16 relative overflow-hidden">
-                  <div className="absolute inset-0 blueprint-dot opacity-5 pointer-events-none" />
+                  <div className="absolute inset-0 blueprlnt-dot opacity-5 pointer-events-none" />
                   <h3 className="font-serif font-bold text-2xl text-cream-50 mb-10 relative z-10">
                     Contact Information
                   </h3>
@@ -564,7 +564,7 @@ function App() {
                       href="tel:07980886335"
                       className="flex items-start group"
                     >
-                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-cream-300 transition-colors">
+                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrlnk-0 group-hover:border-cream-300 transition-colors">
                         <svg className="w-5 h-5 text-cream-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
@@ -581,7 +581,7 @@ function App() {
                       href="mailto:bosworthkbb@gmail.com"
                       className="flex items-start group"
                     >
-                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0 group-hover:border-cream-300 transition-colors">
+                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrlnk-0 group-hover:border-cream-300 transition-colors">
                         <svg className="w-5 h-5 text-cream-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
@@ -595,7 +595,7 @@ function App() {
                     </a>
 
                     <div className="flex items-start">
-                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrink-0">
+                      <div className="w-12 h-12 border border-cream-50/20 flex items-center justify-center mr-5 shrlnk-0">
                         <svg className="w-5 h-5 text-cream-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
