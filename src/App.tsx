@@ -2,6 +2,15 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +46,7 @@ function App() {
   return (
     <div className="min-h-screen bg-cream-100">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream-50/95 backdrop-blur-sm border-b-2 border-accent/40 shadow-sm">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled ? 'bg-cream-50/80 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-cream-300/50' : 'bg-transparent border-b border-transparent'}`}>
         {/* Top Utility Bar */}
         <div className="bg-accent text-cream-50/90 text-xs px-6 py-2 border-b border-accent-dark/30 hidden md:block">
           <div className="max-w-7xl mx-auto flex justify-between items-center font-medium tracking-wide">
@@ -66,8 +75,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <button onClick={() => scrollToSection('hero')} className="flex items-center">
-              <span className="font-serif font-bold text-3xl md:text-4xl text-black tracking-tight">
-                Bosworth <span className="text-accent">KBB</span>
+              <span className={`font-serif font-bold text-3xl md:text-4xl tracking-tight transition-colors duration-500 ${scrolled ? 'text-black' : 'text-white'}`}>
+                Bosworth <span className={`transition-colors duration-500 ${scrolled ? 'text-accent' : 'text-accent-light'}`}>KBB</span>
               </span>
             </button>
 
@@ -77,14 +86,14 @@ function App() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-charcoal-muted hover:text-accent transition-colors text-sm font-medium tracking-wide"
+                  className={`hover:text-accent transition-colors duration-300 text-sm font-medium tracking-wide ${scrolled ? 'text-charcoal-muted' : 'text-white/80 hover:text-white'}`}
                 >
                   {item}
                 </button>
               ))}
               <a
                 href="tel:07980886335"
-                className="border border-accent text-accent hover:bg-accent hover:text-cream-50 px-6 py-2.5 text-sm font-medium tracking-wide transition-all"
+                className={`px-6 py-2.5 text-sm font-medium tracking-wide transition-all duration-300 ${scrolled ? 'border border-accent text-accent hover:bg-accent hover:text-cream-50' : 'bg-accent hover:bg-accent-dark text-cream-50'}`}
               >
                 Get a Quote
               </a>
@@ -93,7 +102,7 @@ function App() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-charcoal p-2"
+              className={`md:hidden p-2 transition-colors duration-500 ${scrolled ? 'text-charcoal' : 'text-white'}`}
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +118,7 @@ function App() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-cream-50 border-t border-cream-300">
+          <div className="md:hidden bg-cream-50/95 backdrop-blur-xl border-t border-cream-300/50">
             <div className="px-6 py-6 space-y-4">
               {['Services', 'Gallery', 'About', 'Contact'].map((item) => (
                 <button
@@ -318,7 +327,7 @@ function App() {
             ].map((service, index) => (
               <div
                 key={index}
-                className={`bg-cream-100 p-10 border border-cream-300/80 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 group scroll-animate delay-${((index % 3) + 1) * 100}`}
+                className={`bg-cream-100/60 backdrop-blur-sm p-10 border border-cream-300/50 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-1 transition-all duration-500 group scroll-animate delay-${((index % 3) + 1) * 100}`}
               >
                 <div className="text-accent mb-6">
                   {service.icon}
@@ -514,7 +523,7 @@ function App() {
             ))}
           </div>
 
-          <div className="max-w-3xl mx-auto bg-cream-50 border-2 border-accent/20 shadow-xl p-12 md:p-16 scroll-animate delay-200 relative overflow-hidden">
+          <div className="max-w-3xl mx-auto bg-cream-50/70 backdrop-blur-md border border-accent/15 shadow-2xl shadow-accent/5 p-12 md:p-16 scroll-animate delay-200 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-4 h-4 border-l border-t border-accent" />
             <div className="absolute bottom-0 right-0 w-4 h-4 border-r border-b border-accent" />
             <div className="text-center relative z-10">
@@ -550,7 +559,7 @@ function App() {
           </div>
 
           <div className="max-w-4xl mx-auto scroll-animate delay-100">
-            <div className="bg-cream-50 border border-cream-300 shadow-xl">
+            <div className="bg-cream-50/70 backdrop-blur-md border border-cream-300/50 shadow-2xl shadow-black/5 overflow-hidden">
               <div className="grid md:grid-cols-2">
                 {/* Contact Info */}
                 <div className="bg-accent p-12 md:p-16 relative overflow-hidden">
